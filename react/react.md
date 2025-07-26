@@ -1,6 +1,7 @@
 1. What is React?
 
 React is a JavaScript library developed by Facebook for building user interfaces, especially single-page applications.
+Crete component based Architecture.
 It allows developers to create reusable UI components and manage the state of those components efficiently.
 
 2. What are the main features of React?
@@ -9,10 +10,18 @@ Virtual DOM: Optimizes rendering by updating only the parts of the DOM that have
 Component-Based Architecture: Encourages reusable UI components.
 Unidirectional Data Flow: Makes code predictable and easier to debug.
 JSX: A syntax extension that allows mixing HTML with JavaScript.
+Hooks:
+Context API:
+
+3. What is a Single Page Application - SPA ?
+
+Type of web application that load single html page. instead of update whole page only update affected path of the page according to user's action.
+BUT --> hard for SEO, since app use single URL (harder to crawl and index content effectively)
 
 3. What is JSX?
 
 JSX stands for JavaScript XML. It is a syntax extension for JavaScript, allowing developers to write HTML-like code within JavaScript.
+Self closing tages.
 React converts JSX into JavaScript during the build process.
 
 4. What is the Virtual DOM?
@@ -22,9 +31,37 @@ compares it with the previous version (diffing), and updates only the changed pa
 
 5. Explain the difference between a class component and a functional component.
 
-Class Component: Requires `extends React.Component`. Can use lifecycle methods and `state`.
-Functional Component: A plain JavaScript function that returns JSX. With React Hooks,
-functional components can now manage state and use lifecycle features.
+Class Component: Requires `extends React.Component`& include render method which return JSX. Can use lifecycle methods and `state` (this.state, this.setstate). (used before hooks)
+Functional Component: A plain JavaScript function that returns JSX. With React Hooks, Use handle state and lifecycle events use hooks (useState, useEffect)
+functional components can now manage state and use lifecycle features (functional components used to be stateless before introduction of hooks).
+
+5. What is react stateless component ? stateFull compoenent ?
+
+Stateless:
+Not store or manage state, recieve data via prompt. use when dont want to handle  any logic but just want to display the content
+```typescript
+const Welcome = (props) => {
+    return <h1>Hello {props.name}</h1>;
+};
+```
+
+Statefull:
+Can manage own state and can update existing state based on user interation or other events. Can handle complicate logics and produce required output as well.
+```typescript
+import React, {useState} from 'react';
+    
+const Counter = () => {
+    const [count, setCount] = useState(0);
+
+    return (
+        <div>
+            <p>Count :{count}</p>
+            <button onClick={()=>{setCount(count+1)}}>Increment</button>
+        </div>
+    );
+};
+```
+
 
 6. What are React Hooks?
 
@@ -35,7 +72,7 @@ React Hooks are functions that let you use state and other React features in fun
 `useRef`: For accessing DOM elements or persisting mutable values.
 
 7. What is the difference between `state` and `props`?
-   Props: Used to pass data from a parent component to a child component. They are immutable.
+   Props: Used to pass data from a parent component to a child component. They are immutable (cannot modify).
    State: Managed within the component. It is mutable and determines the component's behavior and rendering.
 
 8. What is the purpose of `useEffect`?
