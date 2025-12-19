@@ -14,6 +14,8 @@ This repository is organized into different topics to help you prepare for techn
 
 - data-structures: Essential data structures and their operations
 
+- dsa-coding: coding questions
+
 - database: Database design, queries, and optimization techniques
 
 - design-patterns: Common design patterns and their use cases
